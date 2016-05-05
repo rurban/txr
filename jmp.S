@@ -238,3 +238,9 @@ DEFUN(jmp_restore)
 #else
 #error port me!
 #endif
+
+#ifndef __APPLE__
+/* This is needed so our assembly code doesn't cause
+   the program to require an executable stack! */
+.section .note.GNU-stack,"",@progbits
+#endif
